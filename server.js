@@ -15,7 +15,7 @@ app.post("/api/register", async (req, res) => {
 
     try {
         const { id } = req.params
-        const result = await db.query("INSERT INTO students (name,dob,year_of_joining,year_of_experience,address,qualification) VALUES (?,?,?,?,?,?)", [name, dob, year_of_joining, year_of_experience, address, qualification])
+        const result = await db.query("INSERT INTO employees (name,dob,year_of_joining,year_of_experience,address,qualification) VALUES (?,?,?,?,?,?)", [name, dob, year_of_joining, year_of_experience, address, qualification])
         res.json(result[0].insertId);
     } catch (error) {
         console.log(error);
