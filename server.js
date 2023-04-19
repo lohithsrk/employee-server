@@ -15,7 +15,7 @@ app.post("/api/register", async (req, res) => {
 
     try {
         const { id } = req.params
-        const result = await db.query("INSERT INTO employees (name,dob,year_of_joining,year_of_experience,address,qualification) VALUES (?,?,?,?,?,?)", [name, dob, year_of_joining, year_of_experience, address, qualification])
+        const result = await db.query("INSERT INTO employee (name,dob,year_of_joining,year_of_experience,address,qualification) VALUES (?,?,?,?,?,?)", [name, dob, year_of_joining, year_of_experience, address, qualification])
         res.json(result[0].insertId);
     } catch (error) {
         console.log(error);
@@ -26,7 +26,7 @@ app.post("/api/register", async (req, res) => {
 app.get("/api/:id", async (req, res) => {
     try {
         const { id } = req.params
-        const result = await db.query("SELECT * FROM employees WHERE id = ?", [id])
+        const result = await db.query("SELECT * FROM employee WHERE id = ?", [id])
         res.json(result[0]);
     } catch (error) {
         console.log(error);
