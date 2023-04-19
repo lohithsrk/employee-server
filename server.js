@@ -27,7 +27,7 @@ app.get("/api/:id", async (req, res) => {
     try {
         const { id } = req.params
         const result = await db.query("SELECT * FROM employee WHERE id = ?", [id])
-        res.json(result[0]);
+        res.json(result[0][0]);
     } catch (error) {
         console.log(error);
         res.json(error)
